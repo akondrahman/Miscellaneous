@@ -5,3 +5,5 @@
  * _db-python_ contains implementation on how to connect with a database, and perform insert, update, and delete operations in a MySQL database
  * _plot-python_ contains implementation on how to plot bar graphs, and box plots
  for two, three, and multiple groups. 
+###Contact
+   E-mail: akond.rahman.buet@gmail.com
