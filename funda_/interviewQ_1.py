@@ -169,3 +169,25 @@ listB = [3, 4, 6, 5]
 Kparam = 5
 out=[]
 print "Output of crteMaxInteger () ", createMaxInteger(listA,listB, Kparam, out)
+
+
+
+def createWaveFromArray(listParam): 
+  sortedAray = sorted(listParam) 
+  arrayLen=len(listParam) 
+  spliiter = (arrayLen)/2
+  lowValues = sortedAray[0:spliiter]
+  highValues = sortedAray[spliiter : arrayLen]
+  output = []
+  for cnt in xrange(spliiter):
+    if (cnt < len(highValues)):      
+      output = output + [highValues[cnt]]
+    if (cnt < len(lowValues)):  
+      output = output + [lowValues[cnt]]    
+
+  return output
+
+
+arr = [9, 1, 2, 5, 8, 3]
+print "Creating waves : ", createWaveFromArray(arr)
+    
