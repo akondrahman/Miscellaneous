@@ -99,3 +99,38 @@ res_1=[12, 3, 5, 4, -7]
 res_2=[12, 3, 5, 4, 7]
 seats = 5
 print "Election Analysis : ", compareElectionResults(res_1, res_2, seats) 
+
+
+def _sortByMSB(listOfInts): 
+  import math
+  tempMax = -1
+  tempElem =  -1
+  lowList = []
+  sortedList = []
+  for itm in listOfInts: 
+    len_ = len(str(itm)) - 1
+    tmp = int(itm / math.pow(10, len_))
+    #print "tmmp", tmp
+    if tmp > tempMax:      
+      tempMax = tmp 
+      tempElem = itm
+    else: 
+      lowList.append(itm)
+      
+  sortedList = sortedList + [tempElem]
+  #print "sorted lsit ...", sortedList
+  lowList = sorted(lowList, reverse=True)
+  sortedList = sortedList + [x for x in lowList]  
+  return sortedList        
+        
+def concatForLargestNumber(listOfInts):
+  sortedByMSB = _sortByMSB(listOfInts)
+  conatenatedList = [str(x) for x in sortedByMSB]
+  #print "lsit, ",conatenatedList
+  out=""
+  for itm in conatenatedList:
+   out = out + itm  
+  return out  
+      
+listOfints = [9, 918,  917]
+print "Largest Concatenated Value: ", concatForLargestNumber(listOfints)
