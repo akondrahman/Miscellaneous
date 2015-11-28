@@ -134,3 +134,38 @@ def concatForLargestNumber(listOfInts):
       
 listOfints = [9, 918,  917]
 print "Largest Concatenated Value: ", concatForLargestNumber(listOfints)
+
+
+
+def createMaxInteger(listA, listB, KParam, outputParam): 
+  #print "lengths : a={}, b={}, out={}".format(listA, listB, out)  
+  
+  if (len(listA) > 0) and (len(listB) > 0) and (len(outputParam) < KParam):
+    a_max_elem = max(listA)
+    a_max_index  = listA.index(a_max_elem)
+    b_max_elem = max(listB)
+    b_max_index  = listB.index(b_max_elem)  
+    if a_max_elem > b_max_elem: 
+      out = outputParam + [a_max_elem]
+      listA.remove(a_max_elem)
+    elif a_max_elem <b_max_elem:  
+      out = outputParam + [b_max_elem]
+      listB.remove(b_max_elem)
+    elif a_max_elem == b_max_elem:
+      if a_max_index < b_max_index: 
+          out = outputParam + [a_max_elem]
+          listA.remove(a_max_elem)
+      else: 
+          out = outputParam + [b_max_elem]
+          listB.remove(b_max_elem)
+    #print "Out contents: ... ", out      
+    out = createMaxInteger(listA, listB, KParam, out)      
+  else:
+    #print "asi to mama ", outputParam
+    out = [x for x in outputParam]
+  return out    
+listA = [9, 1, 2, 5, 8, 3]
+listB = [3, 4, 6, 5]
+Kparam = 5
+out=[]
+print "Output of crteMaxInteger () ", createMaxInteger(listA,listB, Kparam, out)
