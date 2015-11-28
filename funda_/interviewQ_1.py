@@ -75,4 +75,27 @@ jsonStr="{{a}}"
 detectValidJSONString(jsonStr)
 listA=[9, 9, 2]
 listB=[1, 3]
-print "Summing ...", addListsWithCarry(listA, listB)      
+print "Summing ...", addListsWithCarry(listA, listB)     
+
+def compareElectionResults(demResult, repResult, seatCount): 
+  strToRet = ""  
+  detectInvalidity = lambda x : True if x * -1 == abs(x) else False 
+  if (len(demResult) == seatCount) and ( len(repResult) == seatCount):    
+    for dem, rep in zip(demResult, repResult):
+      if (detectInvalidity(dem)) or (detectInvalidity(rep)):
+        strToRet = "Invalid input"
+        break   
+      elif dem == rep: 
+        strToRet = "Democratic and Republican results are equal "
+      else: 
+        strToRet = "Democratic and Republican results are unequal"  
+        break
+  else: 
+        strToRet =  "Length of party results do not match with seat count"
+  
+  return strToRet    
+          
+res_1=[12, 3, 5, 4, -7]
+res_2=[12, 3, 5, 4, 7]
+seats = 5
+print "Election Analysis : ", compareElectionResults(res_1, res_2, seats) 
