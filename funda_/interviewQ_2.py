@@ -95,3 +95,32 @@ def findLargerElem(arrayP):
   return outputArray
 arrayInp =[3, 4, 5, 9, 2, 1, 3]
 print "Output for 'findLArgerElem' ... ", findLargerElem(arrayInp)    
+
+
+def getOptimizedArrayRange(arrayRanges):
+  lowList =[]  
+  highList = []
+  lowRange = []
+  upperRange = []
+  tempDiffLow =[]
+  tempDiffHigh =[]
+  for it_ in arrayRanges:  
+    lowList = lowList + [it_[0]]
+    highList.append(it_[1]) 
+  maxElemOfInterest = max(highList)
+  minElemOfInterest  = min(lowList) 
+  for item in arrayRanges:
+    if item[0]==minElemOfInterest:
+      lowRange.append(item)
+    if item[1] == maxElemOfInterest:
+      upperRange.append(item)
+  for lowI in lowRange:
+    tempDiffLow.append(lowI[1] -lowI[0])   
+  for highI in upperRange:
+    tempDiffHigh.append(lowI[1] -highI[0])  
+  retLow= lowRange[tempDiffLow.index(max(tempDiffLow))]
+  retHigh = upperRange[tempDiffHigh.index(max(tempDiffHigh))]
+  return retLow, retHigh 
+
+arrayRange = [(2, 6), (3, 5), (7, 21), (20, 21)]
+print "Optimized Array RAnge .... ", getOptimizedArrayRange(arrayRange)     
