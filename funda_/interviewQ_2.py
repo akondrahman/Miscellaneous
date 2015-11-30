@@ -83,3 +83,15 @@ primes=[2, 3, 5]
 maxNum=1000
 #print "Prime factors: ", _getPrimeFactors(maxNum)
 print "Largest expressible number:  ", giveLargestExpressibleNumber(primes, maxNum)
+def findLargerElem(arrayP):
+  outputArray =[]  
+  uniqueList = set(arrayP)
+  sortedList = sorted(uniqueList, reverse=False) 
+  for elem in arrayP:
+    lastIndex = len(sortedList) - 1
+    startIndex = sortedList.index(elem) 
+    largerCnt = lastIndex - startIndex
+    outputArray.append(largerCnt)
+  return outputArray
+arrayInp =[3, 4, 5, 9, 2, 1, 3]
+print "Output for 'findLArgerElem' ... ", findLargerElem(arrayInp)    
