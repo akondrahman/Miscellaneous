@@ -1,0 +1,24 @@
+var subject = require('./subject.js')
+var mock = require('mock-fs');
+subject.inc(-5,0);
+subject.inc(-5,undefined);
+mock({"path/fileExists":{},"pathContent":{"file1":"text content","file2":""}});
+	subject.fileTest('path/fileExists','pathContent/file2');
+subject.format('','',true); 
+var JSONObj = { 'options' :'', 'normalize':'true' }; 
+subject.format('','',JSONObj); 
+	subject.fileTest('path/fileExists','pathContent/file1');
+mock.restore();
+mock({});
+	subject.fileTest('path/fileExists','pathContent/file1');
+mock.restore();
+mock({"path/fileExists":{}});
+	subject.fileTest('path/fileExists','pathContent/file1');
+mock.restore();
+mock({"pathContent":{"file1":"text content","file2":""}});
+	subject.fileTest('path/fileExists','pathContent/file1');
+mock.restore();
+subject.normalize('');
+subject.format('','','');
+subject.blackListNumber('4881544179');
+subject.blackListNumber('2120000000');
