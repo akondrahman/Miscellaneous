@@ -1,0 +1,33 @@
+ashfaque
+
+Access Key ID: AKIAIYFXHZ2JUJENHPTA
+Secret Access Key: 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
+
+Role detals: 
+-role name: ashfaque-docker
+- Role arn:aws:iam::717511343068:role/ashfaque-docker
+Trusted Entities
+The identity provider(s) ec2.amazonaws.com
+Policies
+arn:aws:iam::aws:policy/AdministratorAccess arn:aws:iam::aws:policy/AmazonEC2FullAccess 
+
+Elastic IPs: 
+52.34.24.104
+
+Key-pair: 
+ashfaque-docker
+Fingerprint
+3f:b5:02:a1:0a:fd:2a:0e:93:4d:0a:58:50:a9:df:1f:37:14:91:23
+
+Connectingg to instance: 
+
+1. Change permission:
+sudo chmod 400 Documents/Personal/AWS_Stuff/ashfaque-docker.pem 
+
+2. 
+akond$ ssh -i Documents/Personal/AWS_Stuff/ashfaque-docker.pem   ubuntu@ec2-52-37-15-89.us-west-2.compute.amazonaws.com
+
+3. Run the web server
+sudo docker run -p 80:80 akondrahman/aws-ec2-webapp
+
+Reff: http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html

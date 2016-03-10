@@ -1,0 +1,5 @@
+Iterations,Baseline-Undetected Active Errors,	Baseline-Undetected Passive Errors,	Minimized-Undetected Active Errors,	Minimized-Undetected Passive Errors,
+1,1175.47133,	3.371550866,	64.03074364,	1.214547054,
+10,1179.832718,	3.380889901,	55.21190288,	1.214292606,
+100,1188.43712,	3.582911762,	90.23823159,	1.302258425,
+1000,1172.088432,	3.546808825,	21.1307519,	1.153266937,

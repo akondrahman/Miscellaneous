@@ -509,3 +509,150 @@ def plotTwoGroups( group1Param, group2Param, yAxisParam, titleParam, fileNamePar
   fileNameParam = "plot-session-info/" + fileNameParam + ".png"
   py.image.save_as(figToPlot, fileNameParam)   
   return "DONE!"
+  
+  
+  
+def plotLinesForBaseline(fileNameParam):
+  import csv 
+  import plotly.plotly as py
+  import plotly.graph_objs as go
+  from plotly.graph_objs import  Layout, YAxis, Figure, Margin, Font, XAxis       
+  
+  xList = []
+  baselineAct=[]
+  optimizedAct=[]
+  baselinePass=[]
+  optimizedPass=[]  
+  
+  fileToRead = open(fileNameParam, "rU") 
+  try:
+        fileReader = csv.reader(fileToRead, delimiter =',', dialect=csv.excel_tab)
+        next(fileReader, None)
+        for rowVar in fileReader: 
+           xList.append(rowVar[0]) 
+           baselineAct.append(rowVar[1])
+           optimizedAct.append(rowVar[3])
+           baselinePass.append(rowVar[2])
+           optimizedPass.append(rowVar[4])             
+  finally: 
+        fileToRead.close()  
+
+  baselineActTrace = go.Scatter(
+    x = xList,
+    y = baselineAct,
+    mode = 'lines+markers',
+    name = 'Baseline-Undetected Active Errors'
+  )
+  optimizedActTrace = go.Scatter(
+    x = xList,
+    y = optimizedAct,
+    mode = 'lines+markers',
+    name = 'Optimized-Undetected Active Errors'
+  )
+  baselinePassTrace = go.Scatter(
+    x = xList,
+    y = baselinePass,
+    mode = 'lines+markers',
+    name = 'Baseline-Undetected Passive Errors'
+  )
+  optimizedPassTrace = go.Scatter(
+    x = xList,
+    y = optimizedPass,
+    mode = 'lines+markers',
+    name = 'Optimized-Undetected Passive Errors'
+  )
+  ActTraces = [baselineActTrace, optimizedActTrace]    
+  PassTraces = [baselinePassTrace, optimizedPassTrace]     
+  layout_ActError = Layout(
+            title='Comparing Optimized Values with Baseline Values : Undetected Active Errors',
+            titlefont=Font(
+                    family='Times New Roman',
+                    size=18,
+                    color='#000000'
+            ),
+            xaxis=XAxis(
+                showgrid=True,
+                showline=True,    
+                title='Iterations of DE',
+                autorange=False,  
+                range=[0, 1100],
+                titlefont=Font(
+                    family='Times New Roman',
+                    size=12,
+                    color='#000000'
+                )
+            ),            
+            yaxis=YAxis(
+                showgrid=True,
+                showline=True,    
+                title='Optimized Value',
+                range=[0, 1500],  
+                autorange=False,        
+                titlefont=Font(
+                    family='Times New Roman',
+                    size=12,
+                    color='#000000'
+                )
+            ),            
+            width=800,
+            height=600,
+            margin=Margin(
+                l=140,
+                r=40,
+                b=50,
+                t=80
+            ),
+  )  
+  
+  layout_PassError = Layout(
+            title='Comparing Optimized Values with Baseline Values : Undetected Passive Errors',
+            titlefont=Font(
+                    family='Times New Roman',
+                    size=18,
+                    color='#000000'
+            ),
+            xaxis=XAxis(
+                showgrid=True,
+                showline=True,    
+                title='Iterations of DE',
+                autorange=False,     
+                range=[0, 1100],                
+                titlefont=Font(
+                    family='Times New Roman',
+                    size=12,
+                    color='#000000'
+                )
+            ),                        
+            yaxis=YAxis(
+                showgrid=True,
+                showline=True,    
+                title='Optimized Value',
+                range=[0, 5],  
+                autorange=False,        
+                titlefont=Font(
+                    family='Times New Roman',
+                    size=12,
+                    color='#000000'
+                )
+            ),
+            width=800,
+            height=600,
+            margin=Margin(
+                l=140,
+                r=40,
+                b=50,
+                t=80
+            ),
+  )    
+  
+  fig_UnActErr = Figure(data=ActTraces, layout=layout_ActError)
+  fileNameParam =  "UnActError.png"
+  py.image.save_as(fig_UnActErr, fileNameParam)   
+  
+  fig_UnPassErr = Figure(data=PassTraces, layout=layout_PassError)
+  fileNameParam =  "UnPassError.png"
+  py.image.save_as(fig_UnPassErr, fileNameParam)     
+  
+  
+  return "DONE!"  
+  
