@@ -1,0 +1,5 @@
+Cmparing C-myhtml-master-filtered_file_.xml.dump and C-myhtml-master-filtered_file_.xml.dump
+Cmparing 50278 and 50278
+Final tokens for file # 1  5
+Final tokens for file # 2  5
+Generating content ...

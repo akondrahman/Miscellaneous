@@ -1,0 +1,180 @@
+Cmparing C-git-master-filtered_file_.xml.dump and C-git-master-filtered_file_.xml.dump
+Cmparing 247303 and 247303
+Final tokens for file # 1  2
+Final tokens for file # 2  2
+Generating content ...
+Cmparing C-git-master-filtered_file_.xml.dump and C-Sel-redis-filtered_file_.xml.dump
+Cmparing 247303 and 183295
+Final tokens for file # 1  2
+Final tokens for file # 2  2
+Generating content ...
+Cmparing C-git-master-filtered_file_.xml.dump and CSharp-ShareX-master-filtered_file_.xml.dump
+Cmparing 247303 and 788962
+Final tokens for file # 1  2
+Final tokens for file # 2  8
+Generating content ...
+Cmparing C-git-master-filtered_file_.xml.dump and Java-Douya-master-filtered_file_.xml.dump
+Cmparing 247303 and 781618
+Final tokens for file # 1  2
+Final tokens for file # 2  8
+Generating content ...
+Cmparing C-git-master-filtered_file_.xml.dump and Java-RxJava-master-filtered_file_.xml.dump
+Cmparing 247303 and 560690
+Final tokens for file # 1  2
+Final tokens for file # 2  6
+Generating content ...
+Cmparing C-git-master-filtered_file_.xml.dump and Java-SeeWeather-master-filtered_file_.xml.dump
+Cmparing 247303 and 164263
+Final tokens for file # 1  2
+Final tokens for file # 2  2
+Generating content ...
+Cmparing C-Sel-redis-filtered_file_.xml.dump and C-git-master-filtered_file_.xml.dump
+Cmparing 183295 and 247303
+Final tokens for file # 1  2
+Final tokens for file # 2  2
+Generating content ...
+Cmparing C-Sel-redis-filtered_file_.xml.dump and C-Sel-redis-filtered_file_.xml.dump
+Cmparing 183295 and 183295
+Final tokens for file # 1  2
+Final tokens for file # 2  2
+Generating content ...
+Cmparing C-Sel-redis-filtered_file_.xml.dump and CSharp-ShareX-master-filtered_file_.xml.dump
+Cmparing 183295 and 788962
+Final tokens for file # 1  2
+Final tokens for file # 2  8
+Generating content ...
+Cmparing C-Sel-redis-filtered_file_.xml.dump and Java-Douya-master-filtered_file_.xml.dump
+Cmparing 183295 and 781618
+Final tokens for file # 1  2
+Final tokens for file # 2  8
+Generating content ...
+Cmparing C-Sel-redis-filtered_file_.xml.dump and Java-RxJava-master-filtered_file_.xml.dump
+Cmparing 183295 and 560690
+Final tokens for file # 1  2
+Final tokens for file # 2  6
+Generating content ...
+Cmparing C-Sel-redis-filtered_file_.xml.dump and Java-SeeWeather-master-filtered_file_.xml.dump
+Cmparing 183295 and 164263
+Final tokens for file # 1  2
+Final tokens for file # 2  2
+Generating content ...
+Cmparing CSharp-ShareX-master-filtered_file_.xml.dump and C-git-master-filtered_file_.xml.dump
+Cmparing 788962 and 247303
+Final tokens for file # 1  8
+Final tokens for file # 2  2
+Generating content ...
+Cmparing CSharp-ShareX-master-filtered_file_.xml.dump and C-Sel-redis-filtered_file_.xml.dump
+Cmparing 788962 and 183295
+Final tokens for file # 1  8
+Final tokens for file # 2  2
+Generating content ...
+Cmparing CSharp-ShareX-master-filtered_file_.xml.dump and CSharp-ShareX-master-filtered_file_.xml.dump
+Cmparing 788962 and 788962
+Final tokens for file # 1  8
+Final tokens for file # 2  8
+Generating content ...
+Cmparing CSharp-ShareX-master-filtered_file_.xml.dump and Java-Douya-master-filtered_file_.xml.dump
+Cmparing 788962 and 781618
+Final tokens for file # 1  8
+Final tokens for file # 2  8
+Generating content ...
+Cmparing CSharp-ShareX-master-filtered_file_.xml.dump and Java-RxJava-master-filtered_file_.xml.dump
+Cmparing 788962 and 560690
+Final tokens for file # 1  8
+Final tokens for file # 2  6
+Generating content ...
+Cmparing CSharp-ShareX-master-filtered_file_.xml.dump and Java-SeeWeather-master-filtered_file_.xml.dump
+Cmparing 788962 and 164263
+Final tokens for file # 1  8
+Final tokens for file # 2  2
+Generating content ...
+Cmparing Java-Douya-master-filtered_file_.xml.dump and C-git-master-filtered_file_.xml.dump
+Cmparing 781618 and 247303
+Final tokens for file # 1  8
+Final tokens for file # 2  2
+Generating content ...
+Cmparing Java-Douya-master-filtered_file_.xml.dump and C-Sel-redis-filtered_file_.xml.dump
+Cmparing 781618 and 183295
+Final tokens for file # 1  8
+Final tokens for file # 2  2
+Generating content ...
+Cmparing Java-Douya-master-filtered_file_.xml.dump and CSharp-ShareX-master-filtered_file_.xml.dump
+Cmparing 781618 and 788962
+Final tokens for file # 1  8
+Final tokens for file # 2  8
+Generating content ...
+Cmparing Java-Douya-master-filtered_file_.xml.dump and Java-Douya-master-filtered_file_.xml.dump
+Cmparing 781618 and 781618
+Final tokens for file # 1  8
+Final tokens for file # 2  8
+Generating content ...
+Cmparing Java-Douya-master-filtered_file_.xml.dump and Java-RxJava-master-filtered_file_.xml.dump
+Cmparing 781618 and 560690
+Final tokens for file # 1  8
+Final tokens for file # 2  6
+Generating content ...
+Cmparing Java-Douya-master-filtered_file_.xml.dump and Java-SeeWeather-master-filtered_file_.xml.dump
+Cmparing 781618 and 164263
+Final tokens for file # 1  8
+Final tokens for file # 2  2
+Generating content ...
+Cmparing Java-RxJava-master-filtered_file_.xml.dump and C-git-master-filtered_file_.xml.dump
+Cmparing 560690 and 247303
+Final tokens for file # 1  6
+Final tokens for file # 2  2
+Generating content ...
+Cmparing Java-RxJava-master-filtered_file_.xml.dump and C-Sel-redis-filtered_file_.xml.dump
+Cmparing 560690 and 183295
+Final tokens for file # 1  6
+Final tokens for file # 2  2
+Generating content ...
+Cmparing Java-RxJava-master-filtered_file_.xml.dump and CSharp-ShareX-master-filtered_file_.xml.dump
+Cmparing 560690 and 788962
+Final tokens for file # 1  6
+Final tokens for file # 2  8
+Generating content ...
+Cmparing Java-RxJava-master-filtered_file_.xml.dump and Java-Douya-master-filtered_file_.xml.dump
+Cmparing 560690 and 781618
+Final tokens for file # 1  6
+Final tokens for file # 2  8
+Generating content ...
+Cmparing Java-RxJava-master-filtered_file_.xml.dump and Java-RxJava-master-filtered_file_.xml.dump
+Cmparing 560690 and 560690
+Final tokens for file # 1  6
+Final tokens for file # 2  6
+Generating content ...
+Cmparing Java-RxJava-master-filtered_file_.xml.dump and Java-SeeWeather-master-filtered_file_.xml.dump
+Cmparing 560690 and 164263
+Final tokens for file # 1  6
+Final tokens for file # 2  2
+Generating content ...
+Cmparing Java-SeeWeather-master-filtered_file_.xml.dump and C-git-master-filtered_file_.xml.dump
+Cmparing 164263 and 247303
+Final tokens for file # 1  2
+Final tokens for file # 2  2
+Generating content ...
+Cmparing Java-SeeWeather-master-filtered_file_.xml.dump and C-Sel-redis-filtered_file_.xml.dump
+Cmparing 164263 and 183295
+Final tokens for file # 1  2
+Final tokens for file # 2  2
+Generating content ...
+Cmparing Java-SeeWeather-master-filtered_file_.xml.dump and CSharp-ShareX-master-filtered_file_.xml.dump
+Cmparing 164263 and 788962
+Final tokens for file # 1  2
+Final tokens for file # 2  8
+Generating content ...
+Cmparing Java-SeeWeather-master-filtered_file_.xml.dump and Java-Douya-master-filtered_file_.xml.dump
+Cmparing 164263 and 781618
+Final tokens for file # 1  2
+Final tokens for file # 2  8
+Generating content ...
+Cmparing Java-SeeWeather-master-filtered_file_.xml.dump and Java-RxJava-master-filtered_file_.xml.dump
+Cmparing 164263 and 560690
+Final tokens for file # 1  2
+Final tokens for file # 2  6
+Generating content ...
+Cmparing Java-SeeWeather-master-filtered_file_.xml.dump and Java-SeeWeather-master-filtered_file_.xml.dump
+Cmparing 164263 and 164263
+Final tokens for file # 1  2
+Final tokens for file # 2  2
+Generating content ...

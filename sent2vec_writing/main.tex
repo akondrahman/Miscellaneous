@@ -1,0 +1,274 @@
+\documentclass[conference]{IEEEtran}
+
+
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\usepackage{graphicx}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{pifont}
+% Allow commas and periods to extend into margin slightly.
+\usepackage[protrusion=true,expansion=true]{microtype}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand\floor[1]{\lfloor#1\rfloor}
+
+\begin{document}
+\title{Quantifying Project Similarity Leveraging Deep Semantic Similarity Model(DSSM)}
+
+
+
+
+%%%%%%%% Other format %%%%%%%%%%%%%
+\author{
+    Akond Ashfaque Ur Rahman\\
+    Department of Computer Science\\
+    North Carolina State University\\
+    Raleigh, North Carolina, USA\\
+    \{aarahman\}@ncsu.edu 
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract
+\begin{abstract}
+
+
+\end{abstract}
+
+
+\IEEEpeerreviewmaketitle
+
+\begin{IEEEkeywords} 
+software repositories; semantic similarity;
+\end{IEEEkeywords}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% This is introduction section %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+
+
+
+
+
+
+The rest of the paper is organized as follows: we provide background information and related work in Section~\ref{related}. We present our methodology in Section~\ref{meth}. We present empirical findings in Section~\ref{results}. We discuss the findings our study in Section~\ref{discussion}. The limitations of our paper are presented in Section~\ref{limitation}. Finally we conclude this paper in Section~\ref{conclusion}. 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% This is background section %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Background and Related Work}
+\label{related}
+
+In this section we define the necessary concepts used in our paper and prior academic studies that are related to this paper.
+
+\subsection{Definitions}
+
+
+
+\subsection{Semantic Similarity in Software Engineering}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% This is methodology section %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Methodology}
+\label{meth}
+
+The author uses this section to describe the steps to perform relavant implementation and analysis. As shown in Figure~\ref{}, the study involved four major steps namely, collection of software repositories, extracting tokens, training models, and obtaining similarity scores. Finally the author ends this section by describing the experiments used in this study.    
+
+\subsection{Collecting Software Repositories}
+\label{proj_collect}
+
+For analysis the author used popular Github projects written in three languages: C, C\#, and Java. The author hypothesizes that semantic similarity might be different for different projects in different languages, and analysis of such aspect can bring better insight with respect tosemntic similarity. Keping this assertion in mind, the authors has considered three different programming languages: C, C\#, and Java. 
+
+The author selected the the first three projects that were `trending' between March 01,2016 ~ March 30, 2016, and had a size in between 1MB~100MB. The process repeated for three programming languages namely C, C\#,and Java.  Please note that `trending' is a feature of Github that ranks Github repsoitories that gained popularity amongst Github users for a certain time period such as a day, a week, or a month. 
+
+\subsection{Token Extraction}
+\label{token_extract}
+
+The processof semantic similarity involves a collection of words or tokens using a which a semantic modelcan built on. To achieve this goal, 
+the author used a two step process to gather necesary tokens from each of the software repsostories of interest. These steps are presented below: 
+
+\begin{itemize}
+\item{The author used an opne source tool called SrcML.NET to extract all the tokens from each repsoitory. The SrcML.NET program takes the directory of each repository as input, and produces all tokens in one xml file.}
+
+\item{The author used another open source tool called Swum.NET that filters the tokens genrated from SrcML.NET. The motivation of excuting this step was to obtain natural language tokens from the tokens generated in the previous step by condcting the pre-processing steps: 
+\begin{itemize}
+\item{convet camel-case and pascal-case tokens into natural language tokens}
+\item{convert alpha-numeric tokens into natural language tokens such as converting to \textit{\_a\_variable} to \textit{a}, \textit{variable}}
+\item{remove tokens that are a length of one }
+\item{remove tokens from the token collection that are stop words in the English language}
+\item{remove tokens from the token collection that are languae specific keywords such as void, int, and main. }
+\end{itemize}
+}
+\end{itemize}
+
+After performing this step for each repository a .tsv file was created that was later used in training semantic models as well as evaluating the semantic similarity of software repositories. 
+
+\subsection{Training Semantic Models}
+\label{train_dssm}
+The author has used the Dep Structured Semantic Model(DSSM) to quantify the semnatic similarity between projects. According to Huang et al.~\cite{Huang:CIKM} DSSM learns from a query or a document which can be used to compute semnatic siilarity. DSSM tarins itself by projecting semantically similar phrases taht are close to other, and projecting semantically dissimilar phrases that are further to another. 
+
+DSSM also provides configuration options to create different training models from the same document. Amongst these configuraion options the author has used 
+two parameters namely \textit{BATCHSIZE}, and \textit{MAX\_ITER}. \textit{BATCHSIZE} refrs to how many trainign pairs can be used to train. \textit{MAX\_ITER} refers to the the total count of iterations DSSM will use to create the tarinign model.            
+
+Similar to Yih et al.~\cite{wen:tau:semantic:parsing} the author performed the follwoing actions to create the training model for each configuration: 
+\begin{itemize}
+\item{Shuffle the query pairs using the \textit{WordHash} utility with the \textit{shuffle} flag. Yieh et al.~\cite{wen:yih:semantic:parsing} performed a similar step to .}
+
+\item{Following Gao et al.~\cite{gao:emnlp} the authors generate the sequence of letter trigarm features using the \textit{WordHash} utility with the \textit{pair2seqfea} flag. }
+
+\item{The generated sequences of letter trigarm features are converted to binry files using the \textit{WordHash} utility with the \textit{seqfea2bin} flag. }
+
+\item{Next, the noise distribution of th training data is calculated using the \textit{ComputelogPD} utility.}
+
+\item{Using the a configuration file, and the \textit{DSSM\_Train} utility, the author created training models that are used to perform the analysis of this paper. The author describes which model is used for what experiment in Section~\ref{exp}.}
+\end{itemize}
+
+
+
+\subsection{Experiments}
+\label{exp}
+
+The author has designed four experiments to evaluate the similarity between two projects. In these experiments the author has varied the tarining model with respect to DSSM configuration parameters as well as the documents that are using. Table~\ref{} presents the experiemnts and the parametrs tht were changed. The experiemnts are referred by their anmes in Section~\ref{results}. 
+In each of these experiemnts, similar to He et al.~\cite{}'s approach the author has used Cosine similarity to quantify the vectors of tokens amongst two projects. In each of the experiemnt, the nine projects are compared in a pair-wise manner i.e. each of the nine projects are comapred to itself, and the rest of the eight projects of interest.   
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% This is Results section %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\section{Results}
+\label{results}
+
+~\cite{Banich:1998}  
+
+\subsection{Software Repositories}
+\label{res_proj_collect}
+
+
+
+\subsection{Token Extraction}
+\label{res_token_extract}
+
+
+
+\subsection{Similarity}
+\label{res_similarity}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% This is discussion section %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Discussion}
+\label{discussion}
+In this section we discuss our findings by stating the implications of our findings for programmers and researchers.  
+
+%\subsection{Programmer Perspective}
+%We state the following implications that might be relevant to programmers: 
+
+\begin{itemize}
+
+% Observation-1 Started 
+\begin{item}
+
+
+\vspace{0.50em}
+\fbox{\begin{minipage}{22.5em}
+\textbf{Observation-1}: . 
+\end{minipage}}
+     
+\end{item}
+\vspace{0.50em}
+
+% Observation-1 ended 
+
+% Observation-2 started 
+\begin{item}
+
+\vspace{0.50em}
+\fbox{\begin{minipage}{22.5em}
+\textbf{Observation-2}: . 
+\end{minipage}}
+     
+\end{item}
+\vspace{0.50em}
+
+% Observation-2 ended  
+
+% Observation-3 started 
+\begin{item}
+ 
+
+
+\vspace{0.50em}
+\fbox{\begin{minipage}{22.5em}
+\textbf{Observation-3}: .  
+\end{minipage}}
+     
+\end{item}
+\vspace{0.50em}
+
+% Observation-3 ended 
+
+\end{itemize}
+
+
+
+\section{Limitations}
+\label{limitation}
+We discuss the limitations of our study in this section as follwowing: 
+
+  
+
+\section{Conclusion}
+\label{conclusion}
+ 
+
+
+
+
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{bibs/opensource.bib}
+
+
+
+
+
+
+
+
+
+% that's all folks
+\end{document}
+
+
