@@ -1,0 +1,42 @@
+>>> runfile('/Users/akond/Documents/Spring-2016/CSC522/gitRepo/project/exp_x_main.py', wdir='/Users/akond/Documents/Spring-2016/CSC522/gitRepo/project')
+Reloaded modules: IO_, exp_x_experiments, logiRegre, utility
+Started at:  2016-04-15 00:39:45
+This is experiemnt X : classification with  NO versions that has ZERO scores + used K-Means for High and Low + Selectiev Feature 
+----------------------------- Iteration # 1 Starts ------------------------------
+----------------------------- Iteration # 1 Ends ------------------------------
+==================================================================================================================
+<------------ Performing Logistic Regression ------------->
+Output of co-efficients =[[ -1.08764394e-02  -2.05489551e-03   2.70816886e-03   1.71250018e-03
+    2.26858712e-03   7.37818076e-02   2.30688285e+00  -2.77053857e-03
+    9.98025313e-02  -1.59907510e-01   4.37199620e-03   3.22813142e-01
+   -7.17228743e-02  -6.92296459e-03  -8.16219793e-03   2.70221025e-01
+    1.20217523e-03  -1.12995705e-01   3.94629997e-02   6.11594582e-03
+    7.17666374e-03]]
+Output of intercept =[-5.08168217], n_iter_ = [100] 
+==================================================================================================================
+Done ;-)
+Ended at:  2016-04-15 00:39:45
+>>> 
+
+Metrics Order: 
+classes	——-> Number of classes
+ncloc	——-> Lines of code
+functions ——-> Methods	
+duplicated_lines ——-> Duplicated Lines
+complexity ——-> Complexity	
+class_complexity ——-> Class Complexity	
+function_complexity ——-> Function Complexity	
+comment_lines ——-> Comment lines	
+comment_lines_density ——-> Density of Comment Lines 	
+duplicated_lines_density ——-> 	Percentage of duplicated lines
+files ——-> Files	
+directories ——-> Directories	
+file_complexity	 ——-> File Complexity
+violations ——-> Violations	
+duplicated_blocks ——-> Duplicated blocks	
+duplicated_files ——-> Duplicated Files	
+lines ——-> Lines	
+blocker_violations ——-> Blocker Violations	
+critical_violations ——-> Critical Violations	
+major_violations ——-> Major Violations	
+minor_violations ——-> Minor Violations
