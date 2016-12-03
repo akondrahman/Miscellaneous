@@ -29,7 +29,7 @@ def performDFS(graphParam, rootParam):
   popFlag=False
   stackToTrack.append(rootParam)
   while(len(stackToTrack) > 0):
-   print "lol:", stackToTrack
+   #print "lol:", stackToTrack
    nodeToTraverse = stackToTrack[len(stackToTrack)-1]
    if (nodeToTraverse in graphParam):
      adj_nodes = graphParam[nodeToTraverse]
@@ -60,6 +60,6 @@ theGraph={'s':['a', 'b', 'c'],
           'g':[]
 }
 bfs_output = performBFS(theGraph, 's')
-#print bfs_output
+print bfs_output
 dfs_output = performDFS(theGraph, 's')
-print dfs_output
+#print dfs_output
