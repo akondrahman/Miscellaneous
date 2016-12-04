@@ -9,7 +9,7 @@ class nodeInTree:
     self.value = valueP
     self.count = 1
   def printSelf(self):
-   print "Root is:", self.value
+   print "Node value is:", self.value
 
 class binaryTree:
    def __init__(self):
@@ -22,8 +22,16 @@ class binaryTree:
         newNode.left =  self.createBinaryTree(arrayP, lowIndexP, middle - 1 )
         newNode.right =  self.createBinaryTree(arrayP, middle+1, highIndexP)
       return newNode
-
-
+   def searchBinaryTree(self, elemP, rootP):
+      nodeToRet = None
+      if rootP != None:
+        if rootP.value==elemP:
+          nodeToRet = rootP
+        elif elemP < self.root.value:
+          nodeToRet = self.searchBinaryTree(elemP, rootP.left)
+        elif elemP > self.root.value:
+          nodeToRet = self.searchBinaryTree(elemP, rootP.right)
+      return nodeToRet
 '''
 Execution
 '''
@@ -32,3 +40,6 @@ sorted(arrayToCreate)
 bst = binaryTree()
 bst.root = bst.createBinaryTree(arrayToCreate,0,len(arrayToCreate)-1)
 bst.root.printSelf()
+print "*"*50
+nodeToLook = bst.searchBinaryTree(24, bst.root)
+nodeToLook.printSelf()
