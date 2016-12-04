@@ -52,9 +52,39 @@ class binaryTree:
         root_.left = self.doInOrderPrint(root_.left)
         print str(root_.value) + ":"
         root_.right = self.doInOrderPrint(root_.right)
+   def remove(self, root):
+        node2remove = root
+        if root == None:
+            return None
+        if root.right ==None:
+            root = root.left
+        elif root.left == None:
+            root = root.right
+        else:
+            parent = root
+            node2remove = root.left
+            while node2remove.right != None:
+                parent = node2remove
+                node2remove = node2remove.right
+            root.value = node2remove.value
+            if parent == root:
+                parent.left = root.left
+            else:
+                parent.right = root.right
+        return root
+   def removeElem(self, rootP_, elemP):
+    if rootP_!= None:
+        if elemP < rootP_.value:
+            rootP_.left = self.removeElem(rootP_.left, elemP)
+        elif elemP > rootP_.value:
+            rootP_.right = self.removeElem(rootP_.right, elemP)
+        else:
+            rootP_ = self.remove(rootP_)
+    return rootP_
 '''
 Execution
 '''
+elem_ = 100
 arrayToCreate = [3,15,16,24,57,7]
 arrayToCreate = sorted(arrayToCreate)
 bst = binaryTree()
@@ -64,9 +94,11 @@ print "*"*50
 nodeToLook = bst.searchBinaryTree(24, bst.root)
 nodeToLook.printSelf()
 print "*"*50
-elemToInsert = 100
-checkRoot = bst.insertIntoBinaryTree(bst.root, elemToInsert)
+checkRoot = bst.insertIntoBinaryTree(bst.root, elem_)
 checkRoot.printSelf()
 print "*"*50
 bst.doInOrderPrint(bst.root)
-print "*"*50
+print "*"*50 + "Before" + "*"*50
+bst.removeElem(bst.root, elem_)
+bst.doInOrderPrint(bst.root)
+print "*"*50 + "After" + "*"*50
