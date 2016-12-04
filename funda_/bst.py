@@ -32,10 +32,21 @@ class binaryTree:
         elif elemP > self.root.value:
           nodeToRet = self.searchBinaryTree(elemP, rootP.right)
       return nodeToRet
+   def insertIntoBinaryTree(self, rootP, elemP):
+       if rootP!=None:
+         if elemP == rootP.value:
+           rootP.count = rootP.count + 1
+       elif rootP.value < elemP:
+          nodeToInsert = nodeInTree(None, None, elemP)
+          nodeToInsert =  self.insertIntoBinaryTree(rootP.left, elemP)
+       elif rootP.value > elemP:
+          nodeToInsert = nodeInTree(None, None, elemP)
+          nodeToInsert = self.insertIntoBinaryTree(rootP.right, elemP)
+       return nodeToInsert
 '''
 Execution
 '''
-arrayToCreate = [3,5,7,15,16,24,57]
+arrayToCreate = [3,15,16,24,57,7]
 sorted(arrayToCreate)
 bst = binaryTree()
 bst.root = bst.createBinaryTree(arrayToCreate,0,len(arrayToCreate)-1)
@@ -43,3 +54,6 @@ bst.root.printSelf()
 print "*"*50
 nodeToLook = bst.searchBinaryTree(24, bst.root)
 nodeToLook.printSelf()
+elemToInsert = 100
+bst.insertIntoBinaryTree(bst.root, elemToInsert)
+print "*"50 
