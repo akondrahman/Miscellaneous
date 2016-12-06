@@ -13,3 +13,14 @@ def heapify(arr_, n, i):
   if (largest!=i):
       arr_[i], arr_[largest] = arr_[largest], arr_[i]
       heapify(arr_, n, largest)
+
+def heapSort(arrayParam):
+   len_ = len(arrayParam)
+   for i range(len_, -1, -1):
+     heapify(arrayParam, len_, i)
+   for i range(len_-1, 0, -1):
+     arrayParam[0], arrayParam[i] = arrayParam[i], arrayParam[0]
+     heapify(arrayParam, i, 0)
+
+array2sort=[100, 10, 2, 97, 1, 5, 44, 50]
+heapSort(array2sort)
