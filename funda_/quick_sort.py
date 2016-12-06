@@ -32,3 +32,6 @@ def performPart(theList, l_, h_):
    theList[left] = theList[right]
    theList[right] = tmp_
    return right
+list2sort=[5, 120, 23, 11, 1, 66, 90]
+output_ = performQuickSort(list2sort, 0, len(list2sort)-1)
+print "Sorted list:", output_
