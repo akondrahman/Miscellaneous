@@ -77,8 +77,6 @@ def googleProblemFive(arrayParam):
 
 
 
-
-
 def googleProblemSix(arrayList):
   output_ = []
   l_ = len(arrayList) + 1
@@ -89,6 +87,8 @@ def googleProblemSix(arrayList):
     if handler_[ind_] > 1:
         output_.append(ind_)
   return output_
+def googleProblemSeven(theStrParam):
+
 employeeDict={'AAA':['BBB', 'CCC', 'EEE'], 'CCC':['DDD']}
 #googleProblemOne(employeeDict)
 number_ = 6
@@ -114,3 +114,5 @@ list_ = [4, 1, 3, 5, 5]
 dupl_ = googleProblemSix(list_)
 print dupl_
 print "*"*100
+theStr='2-4a0r7-4k'
+outpu_ = googleProblemSeven(theStr)
