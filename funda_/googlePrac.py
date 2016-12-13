@@ -24,9 +24,38 @@ def googleProblemTwo(stackList, number):
          tracker = tracker + [popElem]
          checker_ =  sum(tracker)
    return tracker
+
+
+
+def googleProblemThree(inpList):
+   holderList = [x_ for x_ in xrange(100)]
+   tempList=[]
+   outList = []
+   #print holderList[-1]
+   for elem in holderList:
+     if elem not in inpList:
+        #print elem
+        tempList.append(elem)
+        #print tempList
+     elif elem in inpList:
+        outList.append(tempList)
+        tempList= []
+     if holderList[-1]==elem:
+        #print "asi mama", tempList
+        outList.append(tempList)
+        tempList= []
+   #print outList
+   for subList in outList:
+     f_ = subList[0]
+     l_ = subList[-1]
+     print "{}-{}".format(f_, l_)  
 employeeDict={'AAA':['BBB', 'CCC', 'EEE'], 'CCC':['DDD']}
 #googleProblemOne(employeeDict)
 number_ = 6
 lol= [[1, 2], [3, 4]]
 out_ = googleProblemTwo(lol, number_)
-print out_
+#print out_
+
+
+inputList=[3, 5, 51]
+googleProblemThree(inputList)
