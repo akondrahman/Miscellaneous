@@ -62,6 +62,33 @@ def googleProblemFour(circleParam):
             dist_ = abs(comparer_center - comparee_center)
             if dist_ < comparer_radius:
                 print "Circle#{} intersects with circle#{}".format(ind2_, ind1_)
+def googleProblemFive(arrayParam):
+ pivotIndex = -999
+ for ind_ in xrange(len(arrayParam)):
+   fHalf = ind_
+   lHalf = fHalf + 1
+   firstHalf  = arrayParam[0:fHalf]
+   secondHalf = arrayParam[lHalf:]
+   #print "f:{}, l:{}".format(firstHalf, secondHalf)
+   if (sum(firstHalf)==sum(secondHalf)):
+     pivotIndex = ind_
+ return pivotIndex
+
+
+
+
+
+
+def googleProblemSix(arrayList):
+  output_ = []
+  l_ = len(arrayList) + 1
+  handler_ = [0]*l_
+  for elem_ in arrayList:
+    handler_[elem_] = handler_[elem_] + 1
+  for ind_ in xrange(len(handler_)):
+    if handler_[ind_] > 1:
+        output_.append(ind_)
+  return output_
 employeeDict={'AAA':['BBB', 'CCC', 'EEE'], 'CCC':['DDD']}
 #googleProblemOne(employeeDict)
 number_ = 6
@@ -73,6 +100,17 @@ out_ = googleProblemTwo(lol, number_)
 inputList=[3, 5, 51]
 googleProblemThree(inputList)
 print "*"*100
+print "Circle problem"
 circleStuff = [(1.00, 0.75), (2.00, 1.75), (3.00, 0.50), (4.00, 1.00), (0.00, 2.00)]
 googleProblemFour(circleStuff)
+print "*"*100
+print "Pivot problem"
+arrList=[2, 5, 4, 2, 7, 4]
+pivotIndex=googleProblemFive(arrList)
+print "Pivot index:", pivotIndex
+print "*"*100
+print "Duplicate in O(n)"
+list_ = [4, 1, 3, 5, 5]
+dupl_ = googleProblemSix(list_)
+print dupl_
 print "*"*100
