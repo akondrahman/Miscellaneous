@@ -48,7 +48,20 @@ def googleProblemThree(inpList):
    for subList in outList:
      f_ = subList[0]
      l_ = subList[-1]
-     print "{}-{}".format(f_, l_)  
+     print "{}-{}".format(f_, l_)
+
+
+
+def googleProblemFour(circleParam):
+  for ind1_ in xrange(len(circleParam)):
+    for ind2_ in xrange(len(circleParam)):
+        if ind2_ != ind1_:
+            comparer_center = circleParam[ind1_][0]
+            comparer_radius = circleParam[ind1_][1]
+            comparee_center = circleParam[ind2_][0]
+            dist_ = abs(comparer_center - comparee_center)
+            if dist_ < comparer_radius:
+                print "Circle#{} intersects with circle#{}".format(ind2_, ind1_)
 employeeDict={'AAA':['BBB', 'CCC', 'EEE'], 'CCC':['DDD']}
 #googleProblemOne(employeeDict)
 number_ = 6
@@ -59,3 +72,7 @@ out_ = googleProblemTwo(lol, number_)
 
 inputList=[3, 5, 51]
 googleProblemThree(inputList)
+print "*"*100
+circleStuff = [(1.00, 0.75), (2.00, 1.75), (3.00, 0.50), (4.00, 1.00), (0.00, 2.00)]
+googleProblemFour(circleStuff)
+print "*"*100
