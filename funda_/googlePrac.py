@@ -87,8 +87,29 @@ def googleProblemSix(arrayList):
     if handler_[ind_] > 1:
         output_.append(ind_)
   return output_
-def googleProblemSeven(theStrParam):
-
+def googleProblemSeven(theStrParam, k):
+   splitter='-'
+   strOutput=""
+   tmp_=''
+   if splitter in theStrParam:
+     splitted = theStrParam.split(splitter)
+   tracker_ = 0
+   #print splitted
+   fullStr_=""
+   for elem in splitted:
+       fullStr_ = fullStr_ + elem
+   #print fullStr_
+   for n_ in xrange(len(fullStr_)-1, -1, -1):
+     tracker_ = tracker_ + 1
+     tmp_ = tmp_ + fullStr_[n_]
+     #print tmp_
+     if tracker_ == k:
+        tmp_ = tmp_
+        strOutput = strOutput + '-' + tmp_
+        tmp_ = ''
+        tracker_ = 0
+   strOutput = strOutput[::-1]
+   return strOutput
 employeeDict={'AAA':['BBB', 'CCC', 'EEE'], 'CCC':['DDD']}
 #googleProblemOne(employeeDict)
 number_ = 6
@@ -115,4 +136,5 @@ dupl_ = googleProblemSix(list_)
 print dupl_
 print "*"*100
 theStr='2-4a0r7-4k'
-outpu_ = googleProblemSeven(theStr)
+outpu_ = googleProblemSeven(theStr, 4)
+print outpu_
