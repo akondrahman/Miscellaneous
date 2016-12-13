@@ -24,7 +24,33 @@ def googleProblemOne(listParam):
    h_ = len(listParam)
    output  = getLocalMinimumElement(listParam, l_, h_)
    return output
+
+
+
+def googleProblemTwo(strParam):
+ asciiofA=97
+ dict2ret={}
+ for ind_ in xrange(len(strParam)):
+   literal = strParam[ind_]
+   if literal not in dict2ret:
+    ascii_ = int(literal) + asciiofA
+    print ascii_
+    dict2ret[literal]=  chr(ascii_)
+   fwd_ = ind_ + 1
+   if fwd_ < len(strParam):
+    nextLiteral=strParam[fwd_]
+    combined = literal + nextLiteral
+    theInt = int(combined)
+    if ((theInt < 26) and (combined not in dict2ret)):
+      ascii_ = int(combined) + asciiofA
+      dict2ret[combined]=  chr(ascii_)
+ return dict2ret
 arr_ = [9, 5, 1, 3, 4, 6, 5, 7]
 answer_ = googleProblemOne(arr_)
 print "Local minima is:", answer_
+print "*"*100
+
+numberStr='1239451567'
+solve = googleProblemTwo(numberStr)
+print solve
 print "*"*100
