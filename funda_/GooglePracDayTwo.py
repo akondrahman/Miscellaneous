@@ -66,6 +66,22 @@ def googleProblemFour(dictP, strP):
     if k_ in strP:
        out_.append(k_)
   return out_
+
+def googleProblemFive(websites):
+   tmp_={}
+   for website in websites:
+    content = website[1]
+    name = website[0]
+    if content not in tmp_:
+      tmp_[content] = [name]
+    else:
+      lol = tmp_[content]
+      tmp_[content] = lol + [name]
+   #print tmp_
+   outut={}
+   for k_, v_ in tmp_.iteritems():
+    outut[v_[0]] = v_[1:]
+   return outut
 arr_ = [9, 5, 1, 3, 4, 6, 5, 7]
 answer_ = googleProblemOne(arr_)
 print "Local minima is:", answer_
@@ -87,4 +103,9 @@ theDict={'fru':1, 'fruit':2}
 theStr='fruit'
 sol_ = googleProblemFour(theDict, theStr)
 print "Output:", sol_
+print "*"*100
+
+websiteContent=[('www.a.com', '<html>a</html>'), ('www.b.com', '<html>b</html>'), ('www.c.com', '<html>c</html>'), ('www.d.com', '<html>a</html>'), ('www.e.com', '<html>a</html>')]
+solution_ = googleProblemFive(websiteContent)
+print "Webistes:\n",solution_
 print "*"*100
