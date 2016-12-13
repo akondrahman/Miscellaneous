@@ -55,6 +55,17 @@ def googleProblemThree(a):
     elem2insert = sum(tmp_)
     output[index_] = elem2insert
    return output
+
+
+def googleProblemFour(dictP, strP):
+  out_ =[]
+  #from itertools import permutations
+  #allCombs = [''.join(p) for p in permutations(strP)]
+  #print allCombs
+  for k_, v_ in dictP.iteritems():
+    if k_ in strP:
+       out_.append(k_)
+  return out_
 arr_ = [9, 5, 1, 3, 4, 6, 5, 7]
 answer_ = googleProblemOne(arr_)
 print "Local minima is:", answer_
@@ -70,4 +81,10 @@ print "*"*100
 aOfInt=[5, 3, 1, 10]
 solution = googleProblemThree(aOfInt)
 print solution
+print "*"*100
+
+theDict={'fru':1, 'fruit':2}
+theStr='fruit'
+sol_ = googleProblemFour(theDict, theStr)
+print "Output:", sol_
 print "*"*100
