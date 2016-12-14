@@ -109,6 +109,18 @@ def googleProblemSeven(arrayP, k):
                 min_tmp = min(tmp_)
                 print "Sub array:{}, min:{}".format(tmp_, min_tmp)
 
+
+
+
+def googleProblemEight(list1, list2, value):
+  flag2ret=False
+  modList1 = [x_ for x_ in list1 if x_ <= value]
+  modList2 = [x_ for x_ in list2 if x_ <= value]
+  subList1 = [value - x for x in list1]
+  intersect = set(subList1) & set(modList2)
+  if (len(list(intersect)) > 0):
+    flag2ret = True
+  return flag2ret
 arr_ = [9, 5, 1, 3, 4, 6, 5, 7]
 answer_ = googleProblemOne(arr_)
 print "Local minima is:", answer_
