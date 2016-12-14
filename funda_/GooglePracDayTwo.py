@@ -144,3 +144,8 @@ print "*"*100
 
 googleProblemSeven(theArray, 4)
 print "*"*100
+
+
+outFlag = googleProblemEight(theArray, aOfInt, 7)
+print "Can we? ", outFlag
+print "*"*100
