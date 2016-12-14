@@ -82,6 +82,21 @@ def googleProblemFive(websites):
    for k_, v_ in tmp_.iteritems():
     outut[v_[0]] = v_[1:]
    return outut
+def makeithalf(array_, lo_, hi_):
+   lo_ = 0
+   hi_ = len(array_)
+   m_ = (lo_ + hi_)/2
+   if ((array_[m_] < array_[m_ + 1]) and (array_[m_] > array_[m_ - 1])):
+     return array_[lo_:m_+1]
+   elif (array_[m_] > array_[m_ - 1]):
+     return array_[m_+1:hi_+1]
+   elif ((array_[m_] < array_[m_ + 1])):
+     return array_[lo_:m_]
+
+def googleProblemSix(arrayParam):
+  arrayToSearch = makeithalf(arrayParam, 0, len(arrayParam))
+  min_, max_ = arrayToSearch[0], arrayToSearch[-1]
+  return min_, max_
 arr_ = [9, 5, 1, 3, 4, 6, 5, 7]
 answer_ = googleProblemOne(arr_)
 print "Local minima is:", answer_
@@ -109,3 +124,7 @@ websiteContent=[('www.a.com', '<html>a</html>'), ('www.b.com', '<html>b</html>')
 solution_ = googleProblemFive(websiteContent)
 print "Webistes:\n",solution_
 print "*"*100
+
+theArray=[2, 3, 4, 5, 6, 7, 10, 9, 8, 7]
+min_, max_ = googleProblemSix(theArray)
+print "Min:{}, and max:{}".format(min_, max_)
