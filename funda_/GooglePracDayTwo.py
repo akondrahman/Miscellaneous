@@ -179,3 +179,4 @@ print "*"*100
 
 bulbDict={1:True, 2:False, 3:False, 4:True, 5:False, 6:True}
 googleProblemNine(bulbDict)
+print "*"*100
