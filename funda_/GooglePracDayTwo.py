@@ -97,6 +97,18 @@ def googleProblemSix(arrayParam):
   arrayToSearch = makeithalf(arrayParam, 0, len(arrayParam))
   min_, max_ = arrayToSearch[0], arrayToSearch[-1]
   return min_, max_
+def googleProblemSeven(arrayP, k):
+   for x in xrange(k):
+    #print x
+    ind= x + 1
+    if x >=2:
+        for y in xrange(len(arrayP)):
+            iter_ = ind + y
+            if iter_ < len(arrayP):
+                tmp_ = arrayP[y:iter_]
+                min_tmp = min(tmp_)
+                print "Sub array:{}, min:{}".format(tmp_, min_tmp)
+
 arr_ = [9, 5, 1, 3, 4, 6, 5, 7]
 answer_ = googleProblemOne(arr_)
 print "Local minima is:", answer_
@@ -128,3 +140,7 @@ print "*"*100
 theArray=[2, 3, 4, 5, 6, 7, 10, 9, 8, 7]
 min_, max_ = googleProblemSix(theArray)
 print "Min:{}, and max:{}".format(min_, max_)
+print "*"*100
+
+googleProblemSeven(theArray, 4)
+print "*"*100
