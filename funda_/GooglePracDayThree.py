@@ -19,5 +19,14 @@ def GoogleProbTwo(arrayP):
     if (sum(fHalf)==sum(lHalf)):
         print "The index is:", x_
 
+def GoogleProbThree(idAndWeight):
+ out_=[]
+ for ind_ in xrange(len(idAndWeight)):
+  out_.append(idAndWeight[ind_][1])
+ return out_
 arra_=[5, 1, 3, 4, 7, 6, 1, 2]
 GoogleProbOne(arra_)
+
+idweight=[[4, 20], [2, 30], [3, 40], [4, 50]]
+wieght = GoogleProbThree(idweight)
+print "Weights:", wieght
