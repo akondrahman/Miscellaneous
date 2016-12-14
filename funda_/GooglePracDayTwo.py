@@ -121,6 +121,20 @@ def googleProblemEight(list1, list2, value):
   if (len(list(intersect)) > 0):
     flag2ret = True
   return flag2ret
+
+def getStatus(bd, i):
+   if i in bd:
+    return bd[i]
+def toggleBulb(bd, s, e):
+   for i_ in xrange(s, e, 1):
+    already = bd[i_]
+    bd[i_]= not already
+   return bd
+def googleProblemNine(bulbs):
+  sts_=getStatus(bulbs, 2)
+  print "Status of bulb", sts_
+  toggled=toggleBulb(bulbs, 1, 3)
+  print "Toggled: ", toggled
 arr_ = [9, 5, 1, 3, 4, 6, 5, 7]
 answer_ = googleProblemOne(arr_)
 print "Local minima is:", answer_
@@ -161,3 +175,7 @@ print "*"*100
 outFlag = googleProblemEight(theArray, aOfInt, 7)
 print "Can we? ", outFlag
 print "*"*100
+
+
+bulbDict={1:True, 2:False, 3:False, 4:True, 5:False, 6:True}
+googleProblemNine(bulbDict)
