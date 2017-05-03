@@ -8,6 +8,7 @@ import org.apache.spark.mllib.util.MLUtils
 import org.apache.spark.rdd.RDD
 import org.apache.spark.mllib.linalg.{Matrix, Matrices}
 import org.apache.spark.mllib.linalg.distributed.RowMatrix
+import org.apache.spark.mllib.linalg.distributed.{IndexedRow, IndexedRowMatrix, RowMatrix}
 
 object DataTypePrac{
   def main(args: Array[String]){
@@ -42,6 +43,13 @@ object DataTypePrac{
       val myRowMat: RowMatrix = new RowMatrix(vector_parallel) 
       val distMatRow = myRowMat.numRows()
       val distMatCol = myRowMat.numCols()
-      println(s"Count of rows: $distMatRow, and count of columns: $distMatCol")         
+      println(s"Count of rows (distributed matrix): $distMatRow, and count of columns: $distMatCol")         
+      println("=============================================")
+      val indexedRows: RDD[IndexedRow]  = sc.parallelize(Array(IndexedRow(2, Vectors.dense(1, 3)), IndexedRow(4, Vectors.dense(4, 5)))) // an RDD of indexed row
+      val indexedMat:  IndexedRowMatrix = new IndexedRowMatrix(indexedRows)
+      val indiMatRow = indexedMat.numRows()
+      val indiMatCol = indexedMat.numCols()      
+      println(s"Count of rows (indexed matrix): $indiMatRow, and count of columns: $indiMatCol")         
+      println("=============================================")      
   }
 }  
