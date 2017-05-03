@@ -6,6 +6,7 @@ import org.apache.spark.mllib.linalg.{Vector, Vectors}
 import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.mllib.util.MLUtils
 import org.apache.spark.rdd.RDD
+import org.apache.spark.mllib.linalg.{Matrix, Matrices}
 
 
 object DataTypePrac{
@@ -30,5 +31,9 @@ object DataTypePrac{
       val sampleData: RDD[LabeledPoint] = MLUtils.loadLibSVMFile(sc, sampleMLDataFile)
       println("Read from file ...")
       println(sampleData.toString())
+
+      /*Dense matrix practice*/
+      val myDenseMatrix: Matrix = Matrices.dense(3, 3, Array(99.0, 1.0, 0.0, 3.5, 99.0, 75.1, 0.0, 51.5, 99.0))
+      
   }
 }  
