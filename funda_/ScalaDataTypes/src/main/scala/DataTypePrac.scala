@@ -1,4 +1,7 @@
 /* Scala Data Types Practice */
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
+import org.apache.spark.SparkConf
 import org.apache.spark.mllib.linalg.{Vector, Vectors}
 import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.mllib.util.MLUtils
@@ -13,12 +16,16 @@ object DataTypePrac{
       val sc = new SparkContext(conf)
       /*basic data types*/
       val denseVec:   Vector = Vectors.dense(1.0, 0.0, 3.0)
-      val sparseVec1: Vector = Vectors.sparse(3, Array(1, 9), 99.0)
-      val sparseVec2: Vector = Vectors.sparse(Seq((40.0, 50.0), (11.0, 99.0)), 5.0)
+      val sparseVec1: Vector = Vectors.sparse(3, Array(0, 9), Array(1, 101.0)) /* (index, value) : syntax of Array */
+      val sparseVec2: Vector = Vectors.sparse(3, Seq((0, 50.0), (2, 99.0)))  /* (index, value) : syntax of sequence */
 
       /* labeled points: meeded for classification, one label, accompnaied by a few datasets*/
       val defectedData    = LabeledPoint(1.0, Vectors.dense(1.0, 1.0, 2.5))
       val nonDefectedData = LabeledPoint(0.0, Vectors.dense(5.0, 6.5, 7.5))
+      println("Defected data sample")
+      defectedData.foreach { println }
+      println("Non-defected data sample")
+      nonDefectedData.foreach { println }      
 
       val sampleMLDataFile = "/usr/local/Cellar/apache-spark/1.6.1/libexec/data/mllib/sample_libsvm_data.txt"
       val sampleData: RDD[LabeledPoint] = MLUtils.loadLibSVMFile(sc, sampleMLDataFile)
