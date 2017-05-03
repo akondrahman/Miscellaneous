@@ -22,12 +22,13 @@ object DataTypePrac{
       /* labeled points: meeded for classification, one label, accompnaied by a few datasets*/
       val defectedData    = LabeledPoint(1.0, Vectors.dense(1.0, 1.0, 2.5))
       val nonDefectedData = LabeledPoint(0.0, Vectors.dense(5.0, 6.5, 7.5))
-      println("Defected data sample")
-      defectedData.foreach { println }
-      println("Non-defected data sample")
-      nonDefectedData.foreach { println }      
-
+      println("Sparse (vector 2) data sample")
+      for ( index <- 0 to (sparseVec2.size - 1)) {
+         println(sparseVec2(index))
+      }
       val sampleMLDataFile = "/usr/local/Cellar/apache-spark/1.6.1/libexec/data/mllib/sample_libsvm_data.txt"
       val sampleData: RDD[LabeledPoint] = MLUtils.loadLibSVMFile(sc, sampleMLDataFile)
+      println("Read from file ...")
+      println(sampleData.toString())
   }
 }  
