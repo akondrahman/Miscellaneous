@@ -7,7 +7,7 @@ import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.mllib.util.MLUtils
 import org.apache.spark.rdd.RDD
 import org.apache.spark.mllib.linalg.{Matrix, Matrices}
-
+import org.apache.spark.mllib.linalg.distributed.RowMatrix
 
 object DataTypePrac{
   def main(args: Array[String]){
@@ -34,6 +34,14 @@ object DataTypePrac{
 
       /*Dense matrix practice*/
       val myDenseMatrix: Matrix = Matrices.dense(3, 3, Array(99.0, 1.0, 0.0, 3.5, 99.0, 75.1, 0.0, 51.5, 99.0))
-      
+      /* Distributed Matrix Practice */
+      val vector1 = Vectors.dense(1.0, 0.0, 3.0)
+      val vector2 = Vectors.sparse(3, Array(1), Array(2.5))
+      val vector3 = Vectors.sparse(3, Seq((0, 1.5), (1, 1.8)))
+      val vector_parallel= sc.parallelize(Seq(vector1, vector2, vector3))
+      val myRowMat: RowMatrix = new RowMatrix(vector_parallel) 
+      val distMatRow = myRowMat.numRows()
+      val distMatCol = myRowMat.numCols()
+      println(s"Count of rows: $distMatRow, and count of columns: $distMatCol")         
   }
 }  
