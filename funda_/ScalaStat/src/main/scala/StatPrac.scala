@@ -2,11 +2,14 @@
 
 import org.apache.spark.mllib.linalg.Vector
 import org.apache.spark.mllib.stat.{MultivariateStatisticalSummary, Statistics}
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
+import org.apache.spark.SparkConf
 
 object StatPrac{
 	def main(args: Array[String]){
       /* create spark conf  */
-      val conf = new SparkConf().setAppName("StatApplication")
+      val conf = new SparkConf().setAppName("SparkStatApplication")
       /* create spark context */
       val sc = new SparkContext(conf)
       /* ceate the RDD of Vectors: one vector is X, and the other is Y*/
