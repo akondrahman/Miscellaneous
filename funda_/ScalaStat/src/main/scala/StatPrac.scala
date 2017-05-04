@@ -6,6 +6,11 @@ import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
 import org.apache.spark.mllib.linalg.{Matrix, Matrices}
+import org.apache.spark.mllib.stat.Statistics
+import org.apache.spark.rdd.RDD
+import org.apache.spark.mllib.stat.KernelDensity
+
+
 
 object StatPrac{
 	def main(args: Array[String]){
@@ -31,6 +36,13 @@ object StatPrac{
       val exactSample = data.sampleByKeyExact(withReplacement = false, fractions = fractions)
       println(apprSample.toString)
       println(exactSample.toString)      
-      println("===================================")    
+      println("===================================") 
+      val control_data: RDD[Double] = sc.parallelize(Seq(0.11, 0.27, 0.39, 0.01, 0.45, 0.76))
+      val treatme_data: RDD[Double] = sc.parallelize(Seq(0.19, 0.57, 0.99, 0.17, 0.95, 0.36))      
+      //val testRes = Statistics.kolmogorovSmirnovTest(control_data, treatme_data)
+      //println(testRes)
+      val kd_control = new KernelDensity().setSample(control_data).setBandwidth(3.0)
+      println(kd_control)
+      println("===================================")       
 	}
 }
