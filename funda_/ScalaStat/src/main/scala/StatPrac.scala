@@ -23,5 +23,14 @@ object StatPrac{
       val corrMat: Matrix  = Statistics.corr(rddVecs, "spearman")       	
       println(corrMat.toString)
       println("===================================")    
+      val data = sc.parallelize(Seq((1, 'a'), (2, 'b'), (3, 'c'), (4, 'd'), (5, 'e')))
+      val fractions = Map(1 -> 0.1, 2 -> 0.6, 3 -> 0.3) /*specfy, what fraction do you need */
+      /* get an approximate sample */
+      val apprSample = data.sampleByKey(withReplacement = false, fractions = fractions)
+      /* get an exact sample */
+      val exactSample = data.sampleByKeyExact(withReplacement = false, fractions = fractions)
+      println(apprSample.toString)
+      println(exactSample.toString)      
+      println("===================================")    
 	}
 }
