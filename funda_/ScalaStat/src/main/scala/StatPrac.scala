@@ -1,10 +1,11 @@
 /* Stat using MLLib */
-
+import org.apache.spark.mllib.linalg.{Vector, Vectors}
 import org.apache.spark.mllib.linalg.Vector
 import org.apache.spark.mllib.stat.{MultivariateStatisticalSummary, Statistics}
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
+import org.apache.spark.mllib.linalg.{Matrix, Matrices}
 
 object StatPrac{
 	def main(args: Array[String]){
@@ -18,6 +19,9 @@ object StatPrac{
       println("===================================")
       println(stat_summary.mean) //mean value for each column 
       println(stat_summary.variance) // variance for each column 
-      println("===================================")           	
+      println("===================================")    
+      val corrMat: Matrix  = Statistics.corr(rddVecs, "spearman")       	
+      println(corrMat.toString)
+      println("===================================")    
 	}
 }
