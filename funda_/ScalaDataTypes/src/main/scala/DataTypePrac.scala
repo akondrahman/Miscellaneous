@@ -8,7 +8,9 @@ import org.apache.spark.mllib.util.MLUtils
 import org.apache.spark.rdd.RDD
 import org.apache.spark.mllib.linalg.{Matrix, Matrices}
 import org.apache.spark.mllib.linalg.distributed.RowMatrix
-import org.apache.spark.mllib.linalg.distributed.{IndexedRow, IndexedRowMatrix, RowMatrix}
+import org.apache.spark.mllib.linalg.distributed.{IndexedRow, IndexedRowMatrix, RowMatrix, CoordinateMatrix, MatrixEntry}
+
+
 
 object DataTypePrac{
   def main(args: Array[String]){
@@ -50,6 +52,12 @@ object DataTypePrac{
       val indiMatRow = indexedMat.numRows()
       val indiMatCol = indexedMat.numCols()      
       println(s"Count of rows (indexed matrix): $indiMatRow, and count of columns: $indiMatCol")         
-      println("=============================================")      
+      println("=============================================")   
+      val entries = sc.parallelize(Seq((0, 0, 3.0), (2, 0, -5.0), (3, 2, 1.0), (4, 1, 6.0), (6, 2, 2.0), (8, 1, 4.0))).map{case(i, j, v) => MatrixEntry(i, j, v)}
+      val coord_Mat: CoordinateMatrix = new CoordinateMatrix(entries, 9, 3)
+      val coord_row = coord_Mat.numRows()
+      val coord_col = coord_Mat.numCols()
+      println(s"Count of rows (co-ord matrix): $coord_row, and count of columns: $coord_col")         
+      println("=============================================")         
   }
 }  
