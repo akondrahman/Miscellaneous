@@ -52,8 +52,37 @@ def evalPostFix(inp_str):
             operandStack.append(math_res)
     return operandStack.pop()
 
-
+def parseCommand():
+    var_inp_dic = {}
+    expr_list = []
+    var_cnt = input("Number of variables:")
+    for i in xrange(var_cnt):
+        var_dat = input('Provide input for variables ...')
+        var, dat = var_dat.split('=')[0], var_dat.split('=')[1]
+        var_inp_dic[var] = int(dat)
+    exp_cnt = input("Number of expressions:") 
+    for i in xrange(exp_cnt):
+        exp_dat = input('Provide expression')
+        expr_list.append(exp_dat)
+    for expr in expr_list:
+        stack = []
+        tokens = expr.split(' ')
+        for toke in tokens:
+            if toke in 'abcdefghijklmnopqrstuvwxyz':
+               stack.append(toke) 
+            elif toke in '=-*/':
+                stack.append(toke)
+            elif toke==')':
+                num2 = stack.pop()
+                oper = stack.pop()
+                num1 = stack.pop()
+                res  = doMath(oper, var_inp_dic[num1], var_inp_dic[num2])
+                stack.append(res)
+        print stack 
+        return stack.pop()
+    
 if __name__=='__main__':
    infixStr = "( 1 + 7 ) * ( 3 + 6 )"
    postFixStr = infixToPostfix(infixStr)
-   print evalPostFix(postFixStr)
+   res = evalPostFix(postFixStr)
+   parseCommand()
