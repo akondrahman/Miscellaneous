@@ -38,7 +38,13 @@ class node:
             res_.append(root_.data)
             res_ = res_ + root_.inOrderTraversal(root_.right)    
         return res_
-    
+    def preOrderTraversal(self, root_):
+        res_ = [] 
+        if root_:
+            res_.append(root_.data)
+            res_ = res_ + self.preOrderTraversal(root_.left) 
+            res_ = res_ + self.preOrderTraversal(root_.right) 
+        return res_
 
 if __name__=='__main__':
     root = node(27)
