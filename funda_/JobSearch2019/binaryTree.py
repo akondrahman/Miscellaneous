@@ -31,12 +31,23 @@ class node:
         else: 
            self.data = data_
     
+    def inOrderTraversal(self, root_):
+        res_ = [] 
+        if root_:
+            res_ = root_.inOrderTraversal(root_.left)
+            res_.append(root_.data)
+            res_ = res_ + root_.inOrderTraversal(root_.right)    
+        return res_
     
 
 if __name__=='__main__':
-    root = node(99)
-    root.insertData(6)
+    root = node(27)
     root.insertData(14)
-    root.insertData(3)
-    root.printTree()
+    root.insertData(35)
+    root.insertData(10)
+    root.insertData(19)
+    root.insertData(31)
+    root.insertData(42)
+    # root.printTree()
+    print root.inOrderTraversal(root)
 
