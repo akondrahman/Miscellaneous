@@ -1,6 +1,7 @@
 '''
 Code for binary tree
 Dec 02, 2018 
+reff: https://www.tutorialspoint.com/python/python_tree_traversal_algorithms.htm
 '''
 
 class node: 
